@@ -1,20 +1,10 @@
 <template>
   <div>
     <p class="tasks">
-      Completed Tasks:
-      {{
-        todos.filter(todo => {
-          return todo.done === true;
-        }).length
-      }}
+      {{`Completed Tasks: ${completedTasks}`}}
     </p>
     <p class="tasks">
-      Pending Tasks:
-      {{
-        todos.filter(todo => {
-          return todo.done === false;
-        }).length
-      }}
+      {{`Pending Tasks: ${pendingTasks}`}}
     </p>
     <todo
       v-on:delete-todo="deleteTodo"
@@ -34,6 +24,16 @@ export default {
   props: ['todos'],
   components: {
     Todo
+  },
+  computed: {
+    completedTasks () {
+      const completeds = this.todos.filter(todo => todo.done === true)
+      return completeds.length
+    },
+    pendingTasks () {
+      const pendings = this.todos.filter(todo => todo.done === false)
+      return pendings.length
+    }
   },
   methods: {
     deleteTodo (todo) {
