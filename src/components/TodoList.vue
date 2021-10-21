@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
 import sweetalert from 'sweetalert'
 import Todo from './Todo'
 
