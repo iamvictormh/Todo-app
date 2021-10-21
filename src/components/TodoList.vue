@@ -21,7 +21,9 @@ import sweetalert from 'sweetalert'
 import Todo from './Todo'
 
 export default {
-  props: ['todos'],
+  props: {
+    todos: {type: Array, default: () => {}}
+  },
   components: {
     Todo
   },
