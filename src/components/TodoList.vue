@@ -6,13 +6,13 @@
     <p class="tasks">
       {{`Pending Tasks: ${pendingTasks}`}}
     </p>
-    <todo
-      v-on:delete-todo="deleteTodo"
-      v-on:complete-todo="completeTodo"
-      v-for="todo in todos"
-      v-bind:key="todo"
-      v-bind:todo="todo"
-    ></todo>
+    <Todo
+      v-for="(todo,i) in todos"
+      :key="i"
+      :todo="todo"
+      @delete-todo="deleteTodo($event)"
+      @complete-todo="completeTodo($event)"
+    />
   </div>
 </template>
 
